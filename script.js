@@ -68,3 +68,11 @@ function showFirstMessage (text) {
     console.log(text);
 }
 showFirstMessage('Hello World!'); 
+
+// function calc (a, b) {
+//     return (a + b);
+// }
+// console.log(calc(4, 6));
+
+const calc = (a, b) => {return a + b};
+console.log(calc(4, 6));

@@ -143,7 +143,7 @@
 
 // console.log(counter); 
 
-// const arr = [1, 13, 2, 16, 28];
+const arr = [1, 13, 2, 16, 28];
 // arr.sort(compareNum); 
 // console.log(arr); 
 

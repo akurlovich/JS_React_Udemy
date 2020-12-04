@@ -1,17 +1,17 @@
 'use strict()';
 
-let numberOfFilms;
+// let numbersOfFilms;
 
 const personalMovieDB = {
-    count: numberOfFilms, 
+    count: 0, 
     movies: {},
     actors: {},
     genres: [],
     privat: false,
     start: function() {
-        numberOfFilms = +prompt('Сколько фильмов вы посмотрели?', '');
-        while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-        numberOfFilms = +prompt('Сколько фильмов вы посмотрели?', '');
+        personalMovieDB.count = +prompt('Сколько фильмов вы посмотрели?', '');
+        while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+        personalMovieDB.count = +prompt('Сколько фильмов вы посмотрели?', '');
         }
     },
     writeYouGenres: function() {
@@ -21,7 +21,12 @@ const personalMovieDB = {
             personalMovieDB.genres[i] = prompt(`Ваш любимый жанр под номером ${i+1}`);
             }
         }
+
+        personalMovieDB.genres.forEach((item, i) => {
+            console.log(`Любимый жанр ${i + 1} это ${item}`);
+        });
     },
+
     detectPersonalLevel: function() {
         if (personalMovieDB.count < 10 && personalMovieDB.count > 0) {
             alert('Просмотрено довольно мало фильмов!');
@@ -48,22 +53,21 @@ const personalMovieDB = {
         if (!hidden) {
             console.log(personalMovieDB); 
         }
-    
     },
     toggleVisibleMyDB: function() {
-        if (personalMovieDB.privat == false) {
-            personalMovieDB.privat = true;
+        if (personalMovieDB.privat) {
+            personalMovieDB.privat = false;
             console.log(personalMovieDB.privat);
         } else {
-            personalMovieDB.privat = false;
+            personalMovieDB.privat = true;
             console.log(personalMovieDB.privat);
         }
     }
 
 };
 
-personalMovieDB.writeYouGenres();
-console.log(personalMovieDB); 
+// personalMovieDB.writeYouGenres();
+// console.log(personalMovieDB); 
 
 // function toggleVisibleMyDB() {
 //     if (personalMovieDB.privat == false) {
@@ -77,9 +81,9 @@ console.log(personalMovieDB);
 
 
 // function start() {
-//     numberOfFilms = +prompt('Сколько фильмов вы посмотрели?', '');
-//     while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-//         numberOfFilms = +prompt('Сколько фильмов вы посмотрели?', '');
+//     personalMovieDB.count = +prompt('Сколько фильмов вы посмотрели?', '');
+//     while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+//         personalMovieDB.count = +prompt('Сколько фильмов вы посмотрели?', '');
 //     }
 // }
 

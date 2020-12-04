@@ -15,16 +15,25 @@ const personalMovieDB = {
         }
     },
     writeYouGenres: function() {
-        for (let i = 0; i < 3; i++) {
-            personalMovieDB.genres[i] = prompt(`Ваш любимый жанр под номером ${i+1}`);
-            while (personalMovieDB.genres[i] == '' || personalMovieDB.genres[i] == null) {
-            personalMovieDB.genres[i] = prompt(`Ваш любимый жанр под номером ${i+1}`);
-            }
+        // for (let i = 0; i < 3; i++) {
+        //     personalMovieDB.genres[i] = prompt(`Ваш любимый жанр под номером ${i+1}`);
+        //     while (personalMovieDB.genres[i] == '' || personalMovieDB.genres[i] == null) {
+        //     personalMovieDB.genres[i] = prompt(`Ваш любимый жанр под номером ${i+1}`);
+        //     }
+        // }
+       
+        let genres = prompt('Введите Ваши любимые жанры через запятую');
+
+        if (genres === '' || genres == null) {
+            i--;
+        } else {
+            personalMovieDB.genres = genres.split(', ');
         }
 
         personalMovieDB.genres.forEach((item, i) => {
             console.log(`Любимый жанр ${i + 1} это ${item}`);
         });
+
     },
 
     detectPersonalLevel: function() {

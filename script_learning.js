@@ -143,7 +143,7 @@
 
 // console.log(counter); 
 
-const arr = [1, 13, 2, 16, 28];
+// const arr = [1, 13, 2, 16, 28];
 // arr.sort(compareNum); 
 // console.log(arr); 
 
@@ -254,3 +254,74 @@ const arr = [1, 13, 2, 16, 28];
     // };
     
 // const newObj = {...q};
+
+// ---------------------           ДИНАМИЧЕСКАЯ ТИПИЗАЦИЯ
+
+// To string
+
+// console.log(typeof(String(null)));
+// console.log(typeof(String(4)));
+
+// console.log(typeof(5 + ''));
+
+// const num = 5;
+// console.log("https://vk.com/catalog/" + num);
+
+// const fontSize = 26 + 'px';
+
+// // To number
+
+// console.log(typeof(Number('4')));
+// console.log(typeof(+'4'));
+// console.log(typeof(parseInt('15px', 10)));
+
+// let answ = +prompt("Hello", "");
+
+// // To boolean
+
+// // 0, '', null, underfined, NaN;
+// let switcher = null;
+// if (switcher) {
+//     console.log('Working...');
+// }
+// switcher = 1;
+
+// if (switcher) {
+//     console.log('Working...');
+// }
+
+// console.log(typeof(Boolean('4')));
+
+// console.log(typeof(!!'4'));
+
+// -------------------------РАЗБОР ЗАДАЧ----------------------
+// let x = 5;
+// alert(x++); // 5 так как ++ после переменной
+
+// [] + false // будет false и тип String
+// [] + false - null //будет NaN
+// [] + false - null + true //тоже NaN
+
+// let y = 1;
+// let x = y = 2;
+// alert(x); // 2
+
+// [] + 1 + 2;// '12' тип String
+
+// alert('1'[0]); // 1 так как [0] обращение к индексу строки
+
+// 2 && 1 && null && 0 && undefined // И запинается на лжи ИЛИ на правде, будет null
+
+// console.log(!!(1 && 2) === (1 && 2)); // false 
+
+// alert(null || 2 && 3 || 4); // && логическое И выше, 3
+
+// const a = [1, 2, 3]; 
+//       b = [1, 2, 3]; // a != b так как это разные хранилища информации
+
+// alert(+'Infinity'); // Infinity
+
+// console.log("Ëжик" > "яблоко"); // false
+
+// console.log(0 || "" || 2 || undefined || true || false); // 2
+

@@ -325,3 +325,76 @@
 
 // console.log(0 || "" || 2 || undefined || true || false); // 2
 
+
+
+//-----------------------------СОБЫТИЯ-------------------------------
+
+const btns = document.querySelectorAll('button'),
+      overlay = document.querySelector('.overlay');
+
+// btn.onclick = function() {
+//     alert('click');
+// };
+
+// btn.addEventListener('click', () => {
+//     alert('click');
+// });
+
+// btn.addEventListener('click', () => {
+//     alert('Second click');
+// });
+
+// btn.addEventListener('mouseenter', () => { // наведение мышки
+//     alert('Hi');
+// });
+
+// let i = 0;
+const deleteElement = (event) => {
+    console.log(event.target);
+    // console.log(event.currentTarget);
+    console.log(event.type);
+    // i++;
+    // if (i == 1) {
+    //     btn.removeEventListener('click', deleteElement);
+        
+    // }
+};
+
+// btn.addEventListener('click', (event) => { // event событие, можно любое, даже просто e
+    // console.log(event.target);
+    // event.target.remove();
+    // console.log('Hi');
+// });
+
+// btn.addEventListener('click', deleteElement);
+// overlay.addEventListener('click', deleteElement);
+
+btns.forEach(btn => {
+    btn.addEventListener('click', deleteElement, {once: true});// once будет срабатывать только 1 раз
+});
+
+
+const link = document.querySelector('a');
+
+link.addEventListener('click', (event) => {
+    event.preventDefault();
+    console.log(event.target);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

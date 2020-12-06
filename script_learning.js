@@ -329,8 +329,8 @@
 
 //-----------------------------СОБЫТИЯ-------------------------------
 
-const btns = document.querySelectorAll('button'),
-      overlay = document.querySelector('.overlay');
+// const btns = document.querySelectorAll('button'),
+//       overlay = document.querySelector('.overlay');
 
 // btn.onclick = function() {
 //     alert('click');
@@ -349,10 +349,10 @@ const btns = document.querySelectorAll('button'),
 // });
 
 // let i = 0;
-const deleteElement = (event) => {
-    console.log(event.target);
-    // console.log(event.currentTarget);
-    console.log(event.type);
+// const deleteElement = (event) => {
+//     console.log(event.target);
+//     // console.log(event.currentTarget);
+//     console.log(event.type);
     // i++;
     // if (i == 1) {
     //     btn.removeEventListener('click', deleteElement);
@@ -369,18 +369,20 @@ const deleteElement = (event) => {
 // btn.addEventListener('click', deleteElement);
 // overlay.addEventListener('click', deleteElement);
 
-btns.forEach(btn => {
-    btn.addEventListener('click', deleteElement, {once: true});// once будет срабатывать только 1 раз
-});
+// btns.forEach(btn => {
+//     btn.addEventListener('click', deleteElement, {once: true});// once будет срабатывать только 1 раз
+// });
 
 
-const link = document.querySelector('a');
+// const link = document.querySelector('a');
 
-link.addEventListener('click', (event) => {
-    event.preventDefault();
-    console.log(event.target);
-});
+// link.addEventListener('click', (event) => {
+//     event.preventDefault();
+//     console.log(event.target);
+// });
 
+
+// -------------------------------Навигация по DOM--------------------
 
 
 

@@ -27,8 +27,11 @@
 const box = document.getElementById('box'),
       btns = document.getElementsByTagName('button'),
       circles = document.getElementsByClassName('circle'),
-      hearts = document.querySelectorAll('.heart'),
-      oneHeart = document.querySelector('.heart');
+      wrapper = document.querySelector('.wrapper'),
+    //   hearts = document.querySelectorAll('.heart'),
+      hearts = wrapper.querySelectorAll('.heart'),
+    //   oneHeart = document.querySelector('.heart');
+      oneHeart = wrapper.querySelector('.heart');
 
 // box.style.backgroundColor = 'blue'; 
 // box.style.width = '500px';
@@ -44,6 +47,35 @@ const box = document.getElementById('box'),
 hearts.forEach(item => {
     item.style.backgroundColor = 'blue';
 });
+
+const div = document.createElement('div'); 
+// const text = document.createTextNode('Hello world');
+
+div.classList.add('black');
+//document.body.append(div); //добавляем наш div в конец элемента body
+
+//document.querySelector('.wrapper').append(div); // в конец элемента с классом wrapper
+wrapper.append(div);
+// wrapper.appendChild(div);
+// wrapper.prepend(div);// в НАЧАЛО элемта
+
+// hearts[1].before(div);
+// wrapper.insertBefore(div, hearts[0]);
+// hearts[1].after(div);
+
+// circles[1].remove();
+// wrapper.removeChild(hearts[1]);
+// hearts[0].replaceWith(circles[0]);
+// wrapper.removeChild(circles[0], hearts[0]); 
+
+div.innerHTML = '<h1>Hello world</h1>'; //можно текст и можно HTML структуру
+// div.textContent = 'Hello'; //только текст
+
+div.insertAdjacentHTML('afterbegin', '<h2>Hello</h2>');
+
+
+
+
 
 
 

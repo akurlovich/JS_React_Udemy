@@ -358,7 +358,7 @@
     //     btn.removeEventListener('click', deleteElement);
         
     // }
-};
+// };
 
 // btn.addEventListener('click', (event) => { // event событие, можно любое, даже просто e
     // console.log(event.target);
@@ -377,13 +377,24 @@
 // const link = document.querySelector('a');
 
 // link.addEventListener('click', (event) => {
-//     event.preventDefault();
+//     event.preventDefault(); // ------------отмена стандартных действий браузера-----------
 //     console.log(event.target);
 // });
 
 
 // -------------------------------Навигация по DOM--------------------
 
+// document.head
+// document.documentElement
+// document.body.childNodes
+// document.body.firstChild
+// document.body.firstElementChild
+// document.body.lastChild
+
+// document.querySelector('#current').parentNode
+// document.querySelector('#current').parentElement
+
+// document.querySelector('[data-current="3"]').nextElementSibling
 
 
 

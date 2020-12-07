@@ -147,7 +147,7 @@
 // arr.sort(compareNum); 
 // console.log(arr); 
 
-// function compareNum(a, b) {
+// function compareNum(a, b) {--------------СОРТИРОВКА МАССИВОВ------------------
 //     return a-b;
 // }
 // arr.pop();

@@ -37,13 +37,28 @@ document.addEventListener('DOMContentLoaded', () => {
     addForm.addEventListener('submit', (event) => {
         event.preventDefault();
 
-        const newFilm = addInput.value;
+        let newFilm = addInput.value;
         const favorite = checkbox.checked;
 
-        movieDB.movies.push(newFilm);
-        sortArr(movieDB.movies);
+        if (newFilm) { // проверка на пустую строку, если не пустая, выполнются действия
+            
+            if (newFilm.length > 21) {
+                newFilm = `${newFilm.substring(0, 22)}...`;
+            }
+            
+            movieDB.movies.push(newFilm);
+            sortArr(movieDB.movies);
+            createMovieList(movieDB.movies, movieList);
+        }
 
-        createMovieList(movieDB.movies, movieList);
+        // movieDB.movies.toLowerCase();
+        // console.log(movieDB.movies);
+        // movieDB.movies.forEach(function(item) {
+        //     [item].toLowerCase();
+        //     console.log(movieDB.movies[item]);
+        //     }
+        // );
+        // movieDB.movies.sort();
 
         event.target.reset();
 

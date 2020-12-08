@@ -88,8 +88,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     makeChanges();
 
+    // const sortArr = (arr) => {
+    //     arr.sort();
+    // };
+
     const sortArr = (arr) => {
-        arr.sort();
+        arr.sort((a, b) => a.toLowerCase() > b.toLowerCase() ? 1 : -1);
     };
 
     // sortArr(movieDB.movies); не нужен, т.к. добавили в функцию createMovieList

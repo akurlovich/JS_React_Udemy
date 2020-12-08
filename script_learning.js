@@ -147,9 +147,14 @@
 // arr.sort(compareNum); 
 // console.log(arr); 
 
-// function compareNum(a, b) {--------------СОРТИРОВКА МАССИВОВ------------------
+// function compareNum(a, b) {//!--------------СОРТИРОВКА МАССИВОВ------------------
 //     return a-b;
 // }
+// const sortArr = (arr) => { //!--------------СОРТИРОВКА МАССИВОВ------------------
+//     arr.sort((a, b) => a.toLowerCase() > b.toLowerCase() ? 1 : -1);
+// };
+
+
 // arr.pop();
 // arr.push(10); 
 // console.log(arr);
@@ -352,7 +357,7 @@
 // const deleteElement = (event) => {
 //     console.log(event.target);
 //     // console.log(event.currentTarget);
-//     console.log(event.type);
+//     console.log(event.typpe);
     // i++;
     // if (i == 1) {
     //     btn.removeEventListener('click', deleteElement);
@@ -377,7 +382,7 @@
 // const link = document.querySelector('a');
 
 // link.addEventListener('click', (event) => {
-//     event.preventDefault(); // ------------отмена стандартных действий браузера-----------
+//     event.ppreventDefault(); // ------------отмена стандартных действий браузера-----------
 //     console.log(event.target);
 // });
 

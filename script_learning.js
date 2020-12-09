@@ -403,8 +403,8 @@
 
 //--------------------------------ClaccList и делегирование событий-------------------------
 
-const btns = document.querySelectorAll('button'),
-      wrapper = document.querySelector('bt-block');
+// const btns = document.querySelectorAll('button'),
+//       wrapper = document.querySelector('bt-block');
 // console.log(btns[0].classList.length);
 // console.log(btns[0].classList.item(0));
 // console.log(btns[0].classList.add('red', 'sameclass')); //можно сразу несколько классов
@@ -423,11 +423,11 @@ const btns = document.querySelectorAll('button'),
 //     btns[1].classList.toggle('red'); // тоже самое, что и вверху через if
 // });
 
-wrapper.addEventListener('click', (event) => {
-    if (event.target && event.target.tagName == 'BUTTON') { //event.target.matches('button.red')
-        console.log('Hello');
-    }
-});
+// wrapper.addEventListener('click', (event) => {
+//     if (event.target && event.target.tagName == 'BUTTON') { //event.target.matches('button.red')
+//         console.log('Hello');
+//     }
+// });
 
 // btns.forEach(btn => { //                       тоже что и вверху, но в неё не добавиться новая кнопка что внизу
 //     btn.addEventListener('click', () => {
@@ -435,9 +435,9 @@ wrapper.addEventListener('click', (event) => {
 //     });
 // });
 
-const btn = document.createElement('button');
-btn.classList.add('red');
-wrapper.append(btn); 
+// const btn = document.createElement('button');
+// btn.classList.add('red');
+// wrapper.append(btn); 
 
 
 

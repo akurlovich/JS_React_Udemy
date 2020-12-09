@@ -444,27 +444,27 @@
 //     console.log('hello');
 // }, 2000);
 
-const btn = document.querySelector('.btn');
-let timeId,
-    i = 0;
+// const btn = document.querySelector('.btn');
+// let timeId,
+//     i = 0;
 
-function myAnimation() {// !                   анимация квадрата
-    const elem = document.querySelector('.box');
-    let pos =0;
+// function myAnimation() {// !                   анимация квадрата
+//     const elem = document.querySelector('.box');
+//     let pos =0;
 
-    const id = setInterval(frame, 10);
-    function frame() {
-        if (pos == 300) {
-            clearInterval(id);
-        } else {
-            pos++;
-            elem.style.top = pos + "px";
-            elem.style.left = pos + "px";
-        }
-    }
-}
+//     const id = setInterval(frame, 10);
+//     function frame() {
+//         if (pos == 300) {
+//             clearInterval(id);
+//         } else {
+//             pos++;
+//             elem.style.top = pos + "px";
+//             elem.style.left = pos + "px";
+//         }
+//     }
+// }
 
-btn.addEventListener('click', myAnimation);
+// btn.addEventListener('click', myAnimation);
 
 // btn.addEventListener('click', ()=> {
 //     // const timeId = setTimeout(logger, 2000);
@@ -490,7 +490,29 @@ btn.addEventListener('click', myAnimation);
 //     id = setTimeout(log, 500)
 // }, 500);
 
+// * ------------------------------РАБОТА С ДАТОЙ--------------------------
 
+const now = new Date();
+
+// console.log(now.getFullYear());
+// console.log(now.getMonth());
+// console.log(now.getDay());
+// console.log(now.getUTCHours());
+// console.log(now.getHours());
+
+console.log(now.getTime());
+
+console.log(now.setHours(10));
+console.log(now);
+
+let start = new Date();
+for (let i = 0; i < 10000000; i++) {
+    let some = i ** 3;
+}
+
+let end = new Date();
+
+alert(`otrabotal za ${end - start} sekund`);
 
 
 

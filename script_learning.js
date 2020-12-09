@@ -260,7 +260,7 @@
     
 // const newObj = {...q};
 
-// ---------------------           ДИНАМИЧЕСКАЯ ТИПИЗАЦИЯ
+//* ---------------------           ДИНАМИЧЕСКАЯ ТИПИЗАЦИЯ
 
 // To string
 
@@ -299,7 +299,7 @@
 
 // console.log(typeof(!!'4'));
 
-// -------------------------РАЗБОР ЗАДАЧ----------------------
+// *-------------------------РАЗБОР ЗАДАЧ----------------------
 // let x = 5;
 // alert(x++); // 5 так как ++ после переменной
 
@@ -332,7 +332,7 @@
 
 
 
-//-----------------------------СОБЫТИЯ-------------------------------
+//*-----------------------------СОБЫТИЯ-------------------------------
 
 // const btns = document.querySelectorAll('button'),
 //       overlay = document.querySelector('.overlay');
@@ -387,7 +387,7 @@
 // });
 
 
-// -------------------------------Навигация по DOM--------------------
+//* -------------------------------Навигация по DOM--------------------
 
 // document.head
 // document.documentElement
@@ -401,7 +401,7 @@
 
 // document.querySelector('[data-current="3"]').nextElementSibling
 
-//--------------------------------ClaccList и делегирование событий-------------------------
+//*--------------------------------ClaccList и делегирование событий-------------------------
 
 // const btns = document.querySelectorAll('button'),
 //       wrapper = document.querySelector('bt-block');
@@ -439,6 +439,56 @@
 // btn.classList.add('red');
 // wrapper.append(btn); 
 
+//*----------------------------скрипты и время их выполнения -----------------
+// const timeId = setTimeout(function() {
+//     console.log('hello');
+// }, 2000);
+
+const btn = document.querySelector('.btn');
+let timeId,
+    i = 0;
+
+function myAnimation() {
+    const elem = document.querySelector('.box');
+    let pos =0;
+
+    const id = setInterval(frame, 10);
+    function frame() {
+        if (pos == 300) {
+            clearInterval(id);
+        } else {
+            pos++;
+            elem.style.top = pos + "px";
+            elem.style.left = pos + "px";
+        }
+    }
+}
+
+btn.addEventListener('click', myAnimation);
+
+// btn.addEventListener('click', ()=> {
+//     // const timeId = setTimeout(logger, 2000);
+//     timeId = setInterval(logger, 2000);//будет работать кажные 2 секунды, т.к. мы не прописали способ как его остановть
+
+// });
+
+// const timeId = setTimeout(logger, 2000);
+//setTimeout(logger, 2000); //можно вызывать и без назначения переменной
+
+// clearInterval(timeId); 
+
+// function logger = () { // теперь выполение функции остановиться
+//     if (i === 3) {
+//         clearInterval(timeId);
+//     }
+//     console.log('hello');
+//     i++;
+// }
+
+// let id = setTimeout(function log() { //рекурсивная функция, будет дожитаться выполнения овновной функции, и только после этого сработает интервал
+//     console.log('hello');
+//     id = setTimeout(log, 500)
+// }, 500);
 
 
 

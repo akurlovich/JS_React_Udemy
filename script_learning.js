@@ -448,7 +448,7 @@ const btn = document.querySelector('.btn');
 let timeId,
     i = 0;
 
-function myAnimation() {
+function myAnimation() {// !                   анимация квадрата
     const elem = document.querySelector('.box');
     let pos =0;
 

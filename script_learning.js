@@ -516,26 +516,28 @@
 
 // * ---------------------------параметры документа и окна----------------------------
 
-const box = document.querySelector('.box'),
-      btn = document.querySelector('button');
+// const box = document.querySelector('.box'),
+//       btn = document.querySelector('button');
 // const width = box.clientWidth;  // окно с прокруткой и отступами
 // const height = box.clientHeight;
 
-const width = box.offsetWidth; // окно без прокрутки и отступов
-const height = box.offsetHeight;
+// const width = box.offsetWidth; // окно без прокрутки и отступов
+// const height = box.offsetHeight;
 
-btn.addEventListener('click', () => { 
-    //box.style.height = box.scrollHeight + 'px'; // отобразить весь элемент без скрола
-    console.log(box.scrollTop); // покажет сколько мы пролистали
-});
+// btn.addEventListener('click', () => { 
+//     //box.style.height = box.scrollHeight + 'px'; // отобразить весь элемент без скрола
+//     console.log(box.scrollTop); // покажет сколько мы пролистали
+// });
 
-console.log(box.getBoundingClientRect()); // координаты элемента
+// console.log(box.getBoundingClientRect()); // координаты элемента
 
-const style = window.getComputedStyle(box); // покажет все примененные к объекту стили, идут из css
+// const style = window.getComputedStyle(box); // покажет все примененные к объекту стили, идут из css
 
-console.log(style.display); // стиль у данного объекта
+// console.log(style.display); // стиль у данного объекта
 
-console.log(document.documentElement.clientWidth);
+// console.log(document.documentElement.clientWidth);
+
+//*----------------------------------
 
 
 

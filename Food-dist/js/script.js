@@ -41,6 +41,82 @@ window.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
+    //*-------------------------------модальное окно-----------
+
+    const modalTrigger = document.querySelectorAll('[data-modal]'),
+          modal = document.querySelector('.modal'),
+          modalCloseBtn = document.querySelector('[data-close');
+
+
+    // modalTrigger.forEach(btn => {
+    //     btn.addEventListener('click', () => {
+    //         modal.classList.add('show');
+    //         modal.classList.remove('hide');
+    //         // modal.classList.toggle('show');// вариант с toggle, нужно быть с ним аккуратно!!!, и точно такая же строчка при закрытии
+    //         document.body.style.overflow = 'hidden'; // основная страница не прокруччивается
+    //     });
+    // });
+
+    function openModal () { //функция на открытие, чтобы можно было использовать в разных местах
+        modal.classList.add('show');
+        modal.classList.remove('hide');
+        document.body.style.overflow = 'hidden';
+        clearInterval(modalTimerId); // окно не появится, если пользователь сам его открыл
+    }
+
+    modalTrigger.forEach(btn => {
+        btn.addEventListener('click', openModal);
+    });  
+    
+    function closeModal () { //функция на зарытие, чтобы можно было использовать в разных местах
+        modal.classList.add('hide');
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+
+    modalCloseBtn.addEventListener('click', closeModal);
+    
+    // modalCloseBtn.addEventListener('click', () => {
+    //     modal.classList.add('hide');
+    //     modal.classList.remove('show');
+    //     // modal.classList.toggle('show');
+    //     document.body.style.overflow = '';
+    // });
+
+    modal.addEventListener('click', (e) => { //закрытие окна при клике на заднюю область
+        if (e.target === modal) {
+            // modal.classList.add('hide');
+            // modal.classList.remove('show');
+            // document.body.style.overflow = '';
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => { //закрытие при нажание клавиши
+        if (e.code === "Escape" && modal.classList.contains('show')) {
+            closeModal();
+        }
+    });
+    
+    const modalTimerId = setTimeout(openModal, 3000); //открытие окна через указанное время
+
+    function showModalByScroll() {
+        if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {//проверка, что пользователь долистал до конца страницы
+            openModal();
+            window.removeEventListener('scroll', showModalByScroll);
+        }
+    }
+
+    window.addEventListener('scroll', showModalByScroll);
+    
+    // window.addEventListener('scroll', () => {
+    //     if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {//проверка, что пользователь долистал до конца страницы
+    //         openModal();
+    //     }
+    //}, {once: true}); // ножно , но нам не подходит
+    // });
+
     
 
 

@@ -492,7 +492,7 @@
 
 // * ------------------------------РАБОТА С ДАТОЙ--------------------------
 
-const now = new Date();
+// const now = new Date();
 
 // console.log(now.getFullYear());
 // console.log(now.getMonth());
@@ -500,19 +500,44 @@ const now = new Date();
 // console.log(now.getUTCHours());
 // console.log(now.getHours());
 
-console.log(now.getTime());
+// console.log(now.getTime());
 
-console.log(now.setHours(10));
-console.log(now);
+// console.log(now.setHours(10));
+// console.log(now);
 
-let start = new Date();
-for (let i = 0; i < 10000000; i++) {
-    let some = i ** 3;
-}
+// let start = new Date();
+// for (let i = 0; i < 10000000; i++) {
+//     let some = i ** 3;
+// }
 
-let end = new Date();
+// let end = new Date();
 
-alert(`otrabotal za ${end - start} sekund`);
+// alert(`otrabotal za ${end - start} sekund`);
+
+// * ---------------------------параметры документа и окна----------------------------
+
+const box = document.querySelector('.box'),
+      btn = document.querySelector('button');
+// const width = box.clientWidth;  // окно с прокруткой и отступами
+// const height = box.clientHeight;
+
+const width = box.offsetWidth; // окно без прокрутки и отступов
+const height = box.offsetHeight;
+
+btn.addEventListener('click', () => { 
+    //box.style.height = box.scrollHeight + 'px'; // отобразить весь элемент без скрола
+    console.log(box.scrollTop); // покажет сколько мы пролистали
+});
+
+console.log(box.getBoundingClientRect()); // координаты элемента
+
+const style = window.getComputedStyle(box); // покажет все примененные к объекту стили, идут из css
+
+console.log(style.display); // стиль у данного объекта
+
+console.log(document.documentElement.clientWidth);
+
+
 
 
 

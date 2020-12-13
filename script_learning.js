@@ -539,41 +539,143 @@
 
 //*----------------------------------конструктор-------------------------------------
 
-function User(name, id) {
-    this.name = name;
-    this.id = id;
-    this.human = true;
-    this.hello = function() {
-        console.log(`Hello ${this.name}`);
+// function User(name, id) {
+//     this.name = name;
+//     this.id = id;
+//     this.human = true;
+//     this.hello = function() {
+//         console.log(`Hello ${this.name}`);
+//     }
+
+// }
+
+// User.prototype.exit = function() { //метод exit добаваться у вех
+//     console.log(`Пользователь ${this.name} вышел`);
+// }
+
+// const ivan = new User('Ivan', 28);
+// const alex = new User('Alex', 20);
+
+// ivan.exit();
+
+// ivan.hello();
+// alex.hello();
+
+// console.log(ivan);
+// console.log(alex);
+
+//*---------------------------------THIS--------------------------
+
+// function showThis(a, b) {
+//     console.log(this); // покажет объект windows
+//     function sum() {
+//         console.log(this);
+//         // return this.a + this.b; // здесь нужно без this
+//         return a + b;
+//     }
+
+//     console.log(sum());
+// }
+
+// showThis(4, 5);
+
+// const obj = { // контекст у методов объекта - сам объект
+//     a: 49,
+//     b: 45,
+//     sum: function() {
+//         console.log(this);
+//     }
+
+// };
+// obj.sum(); 
+
+// function User(name, id) { //! this в конструкторах и классах это новый экземпляр объета
+//     this.name = name;
+//     this.id = id;
+//     this.human = true;
+//     this.hello = function() {
+//         console.log(`Hello ${this.name}`);
+//     };
+
+// }
+
+// function sayName() {
+//     console.log(this);
+//     console.log(this.name);
+// }
+
+// const user = {
+//     name: 'John'
+// };
+
+// sayName.call(user);
+// sayName.apply(user);
+
+// function sayName(surname) {
+//     console.log(this);
+//     console.log(this.name + surname);
+// }
+
+// const user = {
+//     name: 'John'
+// };
+
+// sayName.call(user, "Smith");
+// sayName.apply(user, "[Smith]");
+
+// function count(num) {
+//     return this * num; 
+// }
+
+// const double = count.bind(2);
+// console.log(double(3));
+
+// const btn = document.querySelector('click', function() {
+//     this.style.background = 'red';
+// });
+
+// const btn = document.querySelector('click', (e) => { // тоже самое что и без this
+//     e.target.style.background = 'red';
+// });
+
+//* -------------------------------КЛАССЫ------------------------
+
+class Rectangle {
+    constructor(height, width) {
+        this.height = height;
+        this.width = width;
+
     }
 
+    calcAreal() {
+        return this.height * this.width;
+    }
 }
 
-User.prototype.exit = function() { //метод exit добаваться у вех
-    console.log(`Пользователь ${this.name} вышел`);
+class ColoredRectangleWithText extends Rectangle {
+    constructor(height, width, text, bgColor) {
+        super(height, width);// возьмет именно эти свойства от родителя, если нужны другие, то указываем какие именно, если оставить пусрую, то все
+        this.text = text;
+        this.bgColor = bgColor;
+
+    }
+
+    showMyProps() {
+        console.log(`Tekst: ${this.text}, cvet: ${this.bgColor}`);
+    }
 }
 
-const ivan = new User('Ivan', 28);
-const alex = new User('Alex', 20);
+// const square = new Rectangle(10, 110);
+// const long = new Rectangle(33, 12);
 
-ivan.exit();
+// console.log(long.calcAreal());
+// console.log(square.calcAreal());
 
-ivan.hello();
-alex.hello();
+const div = new ColoredRectangleWithText(35, 5, 'Hello', 'red');
 
-console.log(ivan);
-console.log(alex);
+div.showMyProps();
 
-
-
-
-
-
-
-
-
-
-
+console.log(div.calcAreal());
 
 
 

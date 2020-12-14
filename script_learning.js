@@ -679,18 +679,43 @@
 
 //*-------------------------------REST оператор и параметры по умолчанию-------------------------
 
-const log = function(a, b, ...rest) {// в ...rest можно записать любое количество параметров
-    console.log(a, b, rest);
-}
+// const log = function(a, b, ...rest) {// в ...rest можно записать любое количество параметров
+//     console.log(a, b, rest);
+// }
 
-log('basic', 'rest', 'operator', 'usage');
+// log('basic', 'rest', 'operator', 'usage');
 
-function calcOrDouble(number, basic = 2) {
-    // basic = basic || 2; //назначение параметра по умолчанию в старом синтаксисе
-    console.log(number * basic);
-}
+// function calcOrDouble(number, basic = 2) {
+//     // basic = basic || 2; //назначение параметра по умолчанию в старом синтаксисе
+//     console.log(number * basic);
+// }
 
-calcOrDouble(3);// второй параметр 2 подставиться автоматом
+// calcOrDouble(3);// второй параметр 2 подставиться автоматом
+
+//*----------------------------------JSON и глубокое клонирование объектов---------------
+
+const person = {
+    name: 'Alex',
+    tel: '+37539558822',
+    parents: {
+        mom: 'Olga',
+        dad: 'Pavel'
+    }
+};
+
+console.log(JSON.stringify(person)); //переводит в JSON формат
+console.log(JSON.parse(JSON.stringify(person))); // преобразует ответ от сервера (JSON формат) в обычный объект
+
+const clone = JSON.parse(JSON.stringify(person)); // создает глубокий клон объекта, который не зависит от изначального объекта
+clone.parents.mom = 'Ann';
+console.log(person);
+console.log(clone);
+
+
+
+
+
+
 
 
 

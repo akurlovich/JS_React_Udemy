@@ -694,22 +694,26 @@
 
 //*----------------------------------JSON и глубокое клонирование объектов---------------
 
-const person = {
-    name: 'Alex',
-    tel: '+37539558822',
-    parents: {
-        mom: 'Olga',
-        dad: 'Pavel'
-    }
-};
+// const person = {
+//     name: 'Alex',
+//     tel: '+37539558822',
+//     parents: {
+//         mom: 'Olga',
+//         dad: 'Pavel'
+//     }
+// };
 
-console.log(JSON.stringify(person)); //переводит в JSON формат
-console.log(JSON.parse(JSON.stringify(person))); // преобразует ответ от сервера (JSON формат) в обычный объект
+// console.log(JSON.stringify(person)); //переводит в JSON формат
+// console.log(JSON.parse(JSON.stringify(person))); // преобразует ответ от сервера (JSON формат) в обычный объект
 
-const clone = JSON.parse(JSON.stringify(person)); // создает глубокий клон объекта, который не зависит от изначального объекта
-clone.parents.mom = 'Ann';
-console.log(person);
-console.log(clone);
+// const clone = JSON.parse(JSON.stringify(person)); // создает глубокий клон объекта, который не зависит от изначального объекта
+// clone.parents.mom = 'Ann';
+// console.log(person);
+// console.log(clone);
+
+//*---------------------------------AJAX и общение с сервером-----------------------
+
+
 
 
 

@@ -640,42 +640,58 @@
 
 //* -------------------------------КЛАССЫ------------------------
 
-class Rectangle {
-    constructor(height, width) {
-        this.height = height;
-        this.width = width;
+// class Rectangle {
+//     constructor(height, width) {
+//         this.height = height;
+//         this.width = width;
 
-    }
+//     }
 
-    calcAreal() {
-        return this.height * this.width;
-    }
+//     calcAreal() {
+//         return this.height * this.width;
+//     }
+// }
+
+// class ColoredRectangleWithText extends Rectangle {
+//     constructor(height, width, text, bgColor) {
+//         super(height, width);// возьмет именно эти свойства от родителя, если нужны другие, то указываем какие именно, если оставить пусрую, то все
+//         this.text = text;
+//         this.bgColor = bgColor;
+
+//     }
+
+//     showMyProps() {
+//         console.log(`Tekst: ${this.text}, cvet: ${this.bgColor}`);
+//     }
+// }
+
+// // const square = new Rectangle(10, 110);
+// // const long = new Rectangle(33, 12);
+
+// // console.log(long.calcAreal());
+// // console.log(square.calcAreal());
+
+// const div = new ColoredRectangleWithText(35, 5, 'Hello', 'red');
+
+// div.showMyProps();
+
+// console.log(div.calcAreal());
+
+//*-------------------------------REST оператор и параметры по умолчанию-------------------------
+
+const log = function(a, b, ...rest) {// в ...rest можно записать любое количество параметров
+    console.log(a, b, rest);
 }
 
-class ColoredRectangleWithText extends Rectangle {
-    constructor(height, width, text, bgColor) {
-        super(height, width);// возьмет именно эти свойства от родителя, если нужны другие, то указываем какие именно, если оставить пусрую, то все
-        this.text = text;
-        this.bgColor = bgColor;
+log('basic', 'rest', 'operator', 'usage');
 
-    }
-
-    showMyProps() {
-        console.log(`Tekst: ${this.text}, cvet: ${this.bgColor}`);
-    }
+function calcOrDouble(number, basic = 2) {
+    // basic = basic || 2; //назначение параметра по умолчанию в старом синтаксисе
+    console.log(number * basic);
 }
 
-// const square = new Rectangle(10, 110);
-// const long = new Rectangle(33, 12);
+calcOrDouble(3);// второй параметр 2 подставиться автоматом
 
-// console.log(long.calcAreal());
-// console.log(square.calcAreal());
-
-const div = new ColoredRectangleWithText(35, 5, 'Hello', 'red');
-
-div.showMyProps();
-
-console.log(div.calcAreal());
 
 
 

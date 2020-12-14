@@ -713,7 +713,36 @@
 
 //*---------------------------------AJAX и общение с сервером-----------------------
 
+const inputRub = document.querySelector('#rub'),
+      inputUsd = document.querySelector('#usd');
 
+inputRub.addEventListener('input', () => {
+    const request = new XMLHttpRequest();
+
+    // request.open(method, url, async, login, pass);// метод запроса, адрес сайта, sync или async, логин и пароль
+    request.open('GET', 'js/current.json'); // в нашем случае, указываем путь к файлу
+    request.setRequestHeader('Cintent-type', 'application/json; charset=utf-8');
+    //request.send(body); //  вместо body пишем тело запроса при POST запросе
+    request.send(); // пустое при GET запросе
+
+    //  Свойства:
+    //status статус ответа кодом 404 и тд.
+    //statusText ответы текстом
+    //response то что отдал сервер
+    //readyState текужее состояние нашего запроса
+
+    // События:
+    //readystatechange следит за свойством readyState
+    //load срабатывает, когда наш запрос полностью загрузился
+
+    request.addEventListener('readystatechange', () => { 
+
+    });
+    
+
+
+
+});
 
 
 

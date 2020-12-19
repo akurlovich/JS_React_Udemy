@@ -2,3 +2,4 @@
 .vscode/settings.json
 skram/index.html
 /node_modules
+/Food-dist/node_modules

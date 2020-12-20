@@ -713,17 +713,17 @@
 
 //*---------------------------------AJAX и общение с сервером-----------------------
 
-const inputRub = document.querySelector('#rub'),
-      inputUsd = document.querySelector('#usd');
+// const inputRub = document.querySelector('#rub'),
+//       inputUsd = document.querySelector('#usd');
 
-inputRub.addEventListener('input', () => {
-    const request = new XMLHttpRequest();
+// inputRub.addEventListener('input', () => {
+//     const request = new XMLHttpRequest();
 
-    // request.open(method, url, async, login, pass);// метод запроса, адрес сайта, sync или async, логин и пароль
-    request.open('GET', 'js/current.json'); // в нашем случае, указываем путь к файлу
-    request.setRequestHeader('Cintent-type', 'application/json; charset=utf-8');
-    //request.send(body); //  вместо body пишем тело запроса при POST запросе
-    request.send(); // пустое при GET запросе
+//     // request.open(method, url, async, login, pass);// метод запроса, адрес сайта, sync или async, логин и пароль
+//     request.open('GET', 'js/current.json'); // в нашем случае, указываем путь к файлу
+//     request.setRequestHeader('Cintent-type', 'application/json; charset=utf-8');
+//     //request.send(body); //  вместо body пишем тело запроса при POST запросе
+//     request.send(); // пустое при GET запросе
 
     //  Свойства:
     //status статус ответа кодом 404 и тд.
@@ -750,17 +750,26 @@ inputRub.addEventListener('input', () => {
     //     }
     // });
 
-    request.addEventListener('load', () => { //срабатывает, когда запрос готов, но не факт что дошел до нас
-        if (request.status === 200) { // для проверки хватает только статуса
-            const data = JSON.parse(request.response);
-            inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2); // округляем до 2 знаков после запятой
-        } else {
-            inputUsd.value = 'Что-то пошло не так';
-        }
-    });
-});
+//     request.addEventListener('load', () => { //срабатывает, когда запрос готов, но не факт что дошел до нас
+//         if (request.status === 200) { // для проверки хватает только статуса
+//             const data = JSON.parse(request.response);
+//             inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2); // округляем до 2 знаков после запятой
+//         } else {
+//             inputUsd.value = 'Что-то пошло не так';
+//         }
+//     });
+// });
+//*--------------------------------Fetch API------------------------
 
-
+fetch('https://jsonplaceholder.typicode.com/posts', { //настройки передаются объектом
+    method: "POST",
+    body: JSON.stringify({name: 'Alex'}),
+    headers: {
+        'Content-type': 'application/json'
+    }
+})
+    .then(response => response.json()) //превратит данные из json в js объект
+    .then(json => console.log(json));
 
 
 

@@ -761,15 +761,77 @@
 // });
 //*--------------------------------Fetch API------------------------
 
-fetch('https://jsonplaceholder.typicode.com/posts', { //настройки передаются объектом
-    method: "POST",
-    body: JSON.stringify({name: 'Alex'}),
-    headers: {
-        'Content-type': 'application/json'
-    }
-})
-    .then(response => response.json()) //превратит данные из json в js объект
-    .then(json => console.log(json));
+// fetch('https://jsonplaceholder.typicode.com/posts', { //настройки передаются объектом
+//     method: "POST",
+//     body: JSON.stringify({name: 'Alex'}),
+//     headers: {
+//         'Content-type': 'application/json'
+//     }
+// })
+//     .then(response => response.json()) //превратит данные из json в js объект
+//     .then(json => console.log(json));
+
+//*-----------------------------Методы перебора МАССИВОВ----------------------
+
+// filter
+
+// const names = ['Ivan', 'Ana', 'Ksenia', 'Voldemart'];
+
+// const shortName = names.filter(function(name) {
+//     return name.length < 5;
+// });
+
+// map
+
+// const answers = ['InAn', 'AnA', 'Hello'];
+
+// const result = answers.map(item => {
+//     return item.toLowerCase();
+// });
+
+// let answers = ['InAn', 'AnA', 'Hello'];
+
+// const result = answers.map(item => item.toLowerCase()); // изменяет изначальный массив
+
+// every/some 
+
+// const some = [4, 'qwq', 'sdfsdfs'];
+
+// console.log(some.some(item => typeof(item) === 'number'));
+
+// console.log(some.every(item => typeof(item) === 'number'));
+
+// reduce 
+
+// const arr = [1, 4, 2, 8, 7];
+
+// const res = arr.reduce((sum, current) => sum + current); // sum начинает с 0
+
+// const res = arr.reduce((sum, current) => sum + current, 3); // 3 базовое значение sum
+
+// объект в массив
+
+// const obj = {
+//     ivan: 'persone',
+//     ann: 'persone',
+//     dog: 'animal',
+//     cat: 'animal'
+// };
+
+// // const newArr = Object.entries(obj); // создает массив из объекта вида ['ivan', 'persone']
+
+// const newArr = Object.entries(obj)
+// .filter(item => item[1] === 'persone')  // выведет массив только с 'persone'
+// .map(item => item[0]); // выведет массив только с именами
+
+
+
+
+
+
+
+
+
 
 
 

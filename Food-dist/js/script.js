@@ -409,57 +409,131 @@ window.addEventListener('DOMContentLoaded', () => {
 
     //*----------------простой слайдер-----------------
 
+    // const slides = document.querySelectorAll('.offer__slide'),
+    //       prev = document.querySelector('.offer__slider-prev'),
+    //       next = document.querySelector('.offer__slider=next'),
+    //       total = document.querySelector('#total'),
+    //       current = document.querySelector('#current');
+    
+    // let slideIndex = 1;
+
+    // showSlides(slideIndex);
+
+    // if (slides.length < 10) {
+    //     total.textContent = `0${slides.length}`;
+    // } else {
+    //     total.textContent = slides.length;
+    // }
+
+    // function showSlides(n) {
+    //     if (n > slides.length) {
+    //         slideIndex = 1;
+    //     }
+
+    //     if (n < 1) {
+    //         slideIndex = slides.length;
+    //     }
+
+    //     slides.forEach(item => item.style.dispay = 'none');
+
+    //     slides[slideIndex - 1].style.display = 'block';
+
+    //     if (slides.length < 10) {
+    //         current.textContent = `0${slides.slideIndex}`;
+    //     } else {
+    //         current.textContent = slides.slideIndex;
+    //     }
+
+    // }
+
+    // function plusSlides(n) {
+    //     showSlides(slideIndex += n);
+    // }
+    
+    // prev.addEventListener('click', () => {
+    //     plusSlides(-1);
+    // });
+
+    // next.addEventListener('click', () => {
+    //     plusSlides(1);
+    // });
+
+//*-----------------------слвйдер карусель (сложный)-----------------
+
     const slides = document.querySelectorAll('.offer__slide'),
           prev = document.querySelector('.offer__slider-prev'),
           next = document.querySelector('.offer__slider=next'),
           total = document.querySelector('#total'),
-          current = document.querySelector('#current');
-    
-    let slideIndex = 1;
+          current = document.querySelector('#current'),
+          slidersWrapper = document.querySelector('.offer__slider-wrapper'),
+          slidersField = document.querySelector('.offer__slider-inner'),
+          wigth = window.getComputedStyle(slidersWrapper).width; // получаем шируну окна для слайдера
 
-    showSlides(slideIndex);
+    let slideIndex = 1;
+    let offset = 0;
 
     if (slides.length < 10) {
         total.textContent = `0${slides.length}`;
+        current.textContent = `0${slideIndex}`;
     } else {
         total.textContent = slides.length;
+        current.textContent = slideIndex;
     }
 
-    function showSlides(n) {
-        if (n > slides.length) {
-            slideIndex = 1;
-        }
+    slidersField.style.width = 100 * slides.length + '%';
+    slidersField.style.display = 'flex';
+    slidersField.style.transition = '0.5s all';
 
-        if (n < 1) {
-            slideIndex = slides.length;
-        }
+    slidersWrapper.style.overflow = 'hidden';
 
-        slides.forEach(item => item.style.dispay = 'none');
-
-        slides[slideIndex - 1].style.display = 'block';
-
-        if (slides.length < 10) {
-            current.textContent = `0${slides.slideIndex}`;
-        } else {
-            current.textContent = slides.slideIndex;
-        }
-
-    }
-
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
-    
-    prev.addEventListener('click', () => {
-        plusSlides(-1);
+    slides.forEach(slide => {
+        slide.style.width = wigth;
     });
 
     next.addEventListener('click', () => {
-        plusSlides(1);
+        if (offset == +wigth.slice(0, wigth.length - 2) * (slides.length - 1)) {
+            offset = 0;
+        } else {
+            offset += +wigth.slice(0, wigth.length - 2);
+        }
+
+        slidersField.style.transform = `translateX(-${offset}px)`;
+
+        if (slideIndex == slides.length) {
+            slideIndex =1;
+        } else {
+            slideIndex++;
+        }
+
+        if (slides.length < 10) {
+            current.textContent = `0${slideIndex}`;
+        } else {
+            current.textContent = slideIndex;
+        }
     });
 
+    prev.addEventListener('click', () => {
+        if (offset == 0) {
+            offset = +wigth.slice(0, wigth.length - 2) * (slides.length - 1);
+        } else {
+            offset -= +wigth.slice(0, wigth.length - 2);
+        }
+        
+        slidersField.style.transform = `translateX(-${offset}px)`;
 
+        if (slideIndex == 1) {
+            slideIndex = slides.length;
+        } else {
+            slideIndex--;
+        }
+        
+        if (slides.length < 10) {
+            current.textContent = `0${slideIndex}`;
+        } else {
+            current.textContent = slideIndex;
+        }
 
+    });
 
 
 
